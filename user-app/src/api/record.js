@@ -1,4 +1,4 @@
-import { get, post, put, del } from '../utils/request'
+import { get, post, put, del } from '@/utils/request'
 
 // 创建账目
 export const createRecord = (data) => {

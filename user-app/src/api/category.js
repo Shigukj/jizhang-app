@@ -1,4 +1,4 @@
-import { get, post, put, del } from '../utils/request'
+import { get, post, put, del } from '@/utils/request'
 
 // 获取分类列表
 export const getCategories = (params) => {

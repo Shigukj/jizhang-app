@@ -1,0 +1,88 @@
+{
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^wd-(.*)": "wot-design-uni/components/wd-$1/wd-$1.vue"
+    }
+  },
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "首页",
+        "navigationBarBackgroundColor": "#00A5A0",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/add/add",
+      "style": {
+        "navigationBarTitleText": "记账",
+        "navigationBarBackgroundColor": "#00A5A0",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/statistics/statistics",
+      "style": {
+        "navigationBarTitleText": "统计",
+        "navigationBarBackgroundColor": "#00A5A0",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/profile/profile",
+      "style": {
+        "navigationBarTitleText": "我的",
+        "navigationBarBackgroundColor": "#00A5A0",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/login/login",
+      "style": {
+        "navigationBarTitleText": "登录",
+        "navigationBarBackgroundColor": "#00A5A0",
+        "navigationBarTextStyle": "white"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "记账App",
+    "navigationBarBackgroundColor": "#00A5A0",
+    "backgroundColor": "#F5F5F5"
+  },
+  "tabBar": {
+    "color": "#8C8C8C",
+    "selectedColor": "#00A5A0",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/images/tab-home.png",
+        "selectedIconPath": "static/images/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/add/add",
+        "text": "记账",
+        "iconPath": "static/images/tab-add.png",
+        "selectedIconPath": "static/images/tab-add-active.png"
+      },
+      {
+        "pagePath": "pages/statistics/statistics",
+        "text": "统计",
+        "iconPath": "static/images/tab-chart.png",
+        "selectedIconPath": "static/images/tab-chart-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "static/images/tab-profile.png",
+        "selectedIconPath": "static/images/tab-profile-active.png"
+      }
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 import request from '@/utils/request'
 
 // 登录
-export function login(data: { phone: string; password: string }) {
+export function login(data: { account: string; password: string }) {
   return request.post('/auth/login', data)
 }
 

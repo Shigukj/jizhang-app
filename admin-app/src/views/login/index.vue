@@ -12,11 +12,11 @@
         :rules="rules"
         @finish="handleSubmit"
       >
-        <a-form-item name="phone">
+        <a-form-item name="account">
           <a-input
-            v-model:value="formState.phone"
+            v-model:value="formState.account"
             size="large"
-            placeholder="请输入手机号"
+            placeholder="请输入用户名或手机号"
           >
             <template #prefix>
               <UserOutlined />
@@ -48,6 +48,10 @@
           </a-button>
         </a-form-item>
       </a-form>
+      
+      <div class="login-tip">
+        <p>测试账号：admin / admin123</p>
+      </div>
     </div>
   </div>
 </template>
@@ -65,14 +69,13 @@ const userStore = useUserStore()
 const loading = ref(false)
 
 const formState = reactive({
-  phone: '',
+  account: '',
   password: ''
 })
 
 const rules = {
-  phone: [
-    { required: true, message: '请输入手机号' },
-    { pattern: /^1\d{10}$/, message: '请输入正确的手机号' }
+  account: [
+    { required: true, message: '请输入用户名或手机号' }
   ],
   password: [
     { required: true, message: '请输入密码' },
@@ -83,7 +86,7 @@ const rules = {
 const handleSubmit = async () => {
   loading.value = true
   try {
-    await userStore.login(formState.phone, formState.password)
+    await userStore.login(formState.account, formState.password)
     message.success('登录成功')
     router.push('/dashboard')
   } catch (error: any) {
@@ -130,5 +133,12 @@ const handleSubmit = async () => {
 .logo-subtitle {
   font-size: 14px;
   color: #8C8C8C;
+}
+
+.login-tip {
+  text-align: center;
+  margin-top: 16px;
+  color: #8C8C8C;
+  font-size: 12px;
 }
 </style>

@@ -31,6 +31,9 @@ async function initDatabase() {
   // 初始化系统分类
   initCategories();
   
+  // 初始化管理员账号
+  await initAdminUser();
+  
   console.log('✅ 数据库初始化完成');
   
   return db;
@@ -166,6 +169,25 @@ function initCategories() {
   console.log('✅ 系统分类初始化完成');
 }
 
+// 初始化管理员账号
+async function initAdminUser() {
+  const result = db.exec("SELECT COUNT(*) as count FROM users WHERE username = 'admin'");
+  const count = result[0]?.values[0]?.[0] || 0;
+  
+  if (count > 0) return;
+
+  const bcrypt = require('bcryptjs');
+  const passwordHash = await bcrypt.hash('admin123', 10);
+  
+  db.run(`
+    INSERT INTO users (username, phone, password_hash, is_admin, status)
+    VALUES ('admin', '13800000000', ?, 1, 1)
+  `, [passwordHash]);
+  
+  saveDatabase();
+  console.log('✅ 管理员账号初始化完成 (admin / admin123)');
+}
+
 // 保存数据库到文件
 function saveDatabase() {
   if (!db) return;
@@ -222,5 +244,6 @@ module.exports = {
   initDatabase, 
   getDb, 
   prepare, 
-  saveDatabase 
+  saveDatabase,
+  initAdminUser
 };

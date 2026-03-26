@@ -57,14 +57,18 @@ async function register(req, res) {
 // 用户登录
 async function login(req, res) {
   try {
-    const { phone, password } = req.body;
+    const { account, password } = req.body;
 
-    if (!phone || !password) {
-      return res.status(400).json({ error: '手机号和密码不能为空' });
+    if (!account || !password) {
+      return res.status(400).json({ error: '账号和密码不能为空' });
     }
 
-    // 查找用户
-    const user = prepare('SELECT * FROM users WHERE phone = ?').get(phone);
+    // 支持用户名或手机号登录
+    const user = prepare(`
+      SELECT * FROM users 
+      WHERE phone = ? OR username = ?
+    `).get(account, account);
+    
     if (!user) {
       return res.status(401).json({ error: '用户不存在' });
     }

@@ -110,7 +110,7 @@
 import { ref, computed, onMounted } from 'vue'
 import { onShow } from '@dcloudio/uni-app'
 import { getMonthlySummary, getCategoryStatistics } from '@/api/statistics'
-import { useUserStore } from '@/stores/user'
+import { useUserStore } from '../../stores/user'
 import dayjs from 'dayjs'
 
 const userStore = useUserStore()

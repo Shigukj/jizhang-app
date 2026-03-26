@@ -1,4 +1,4 @@
-import { post, get, put } from '@/utils/request'
+import { post, get, put } from '../utils/request'
 
 // 用户注册
 export const register = (data) => {

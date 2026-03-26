@@ -4,8 +4,8 @@ import {
   login as loginApi, 
   register as registerApi, 
   getCurrentUser 
-} from '@/api/auth'
-import { setToken, getToken, removeToken, setUser, getUser, removeUser } from '@/utils/request'
+} from '../api/auth'
+import { setToken, getToken, removeToken, setUser, getUser, removeUser } from '../utils/request'
 
 export const useUserStore = defineStore('user', () => {
   // 状态
